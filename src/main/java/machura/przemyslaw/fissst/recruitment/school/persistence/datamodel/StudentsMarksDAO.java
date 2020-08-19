@@ -1,9 +1,6 @@
-package machura.przemyslaw.fissst.recruitment.school.datatransfermodel;
+package machura.przemyslaw.fissst.recruitment.school.persistence.datamodel;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -15,6 +12,7 @@ import javax.validation.constraints.Min;
 @AllArgsConstructor
 @Builder
 @Getter
+@Setter
 public class StudentsMarksDAO {
 
     @Id
@@ -22,11 +20,11 @@ public class StudentsMarksDAO {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "student_id", nullable = false)
     private StudentDAO student;
 
     @ManyToOne
-    @JoinColumn(name = "school_subject_id")
+    @JoinColumn(name = "school_subject_id", nullable = false)
     private SchoolSubjectDAO schoolSubject;
 
     @Column(nullable = false)

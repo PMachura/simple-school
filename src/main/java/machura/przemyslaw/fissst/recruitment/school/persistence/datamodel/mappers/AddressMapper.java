@@ -1,7 +1,7 @@
-package machura.przemyslaw.fissst.recruitment.school.datatransfermodel.mappers;
+package machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.mappers;
 
 import machura.przemyslaw.fissst.recruitment.school.domain.Address;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.AddressDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.AddressDAO;
 
 public class AddressMapper {
     public static Address from(AddressDAO dao) {

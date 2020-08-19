@@ -2,8 +2,8 @@ package machura.przemyslaw.fissst.recruitment.school;
 
 import io.vavr.Tuple;
 import lombok.RequiredArgsConstructor;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.SchoolClassDAO;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.SchoolSubjectDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.SchoolClassDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.SchoolSubjectDAO;
 import machura.przemyslaw.fissst.recruitment.school.persistence.schoolclass.SchoolClassService;
 import machura.przemyslaw.fissst.recruitment.school.persistence.schoolsubjects.SchoolSubjectService;
 import org.springframework.boot.context.event.ApplicationReadyEvent;

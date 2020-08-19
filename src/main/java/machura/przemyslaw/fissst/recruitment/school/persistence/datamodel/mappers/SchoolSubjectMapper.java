@@ -1,7 +1,7 @@
-package machura.przemyslaw.fissst.recruitment.school.datatransfermodel.mappers;
+package machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.mappers;
 
 import machura.przemyslaw.fissst.recruitment.school.domain.SchoolSubject;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.SchoolSubjectDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.SchoolSubjectDAO;
 
 public class SchoolSubjectMapper {
 

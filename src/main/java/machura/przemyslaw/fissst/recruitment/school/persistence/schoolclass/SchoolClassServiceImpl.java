@@ -4,8 +4,8 @@ import io.vavr.control.Either;
 import io.vavr.control.Try;
 import lombok.RequiredArgsConstructor;
 import machura.przemyslaw.fissst.recruitment.school.common.Failure;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.SchoolClassDAO;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.mappers.SchoolClassMapper;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.SchoolClassDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.mappers.SchoolClassMapper;
 import machura.przemyslaw.fissst.recruitment.school.domain.SchoolClass;
 import org.springframework.stereotype.Service;
 

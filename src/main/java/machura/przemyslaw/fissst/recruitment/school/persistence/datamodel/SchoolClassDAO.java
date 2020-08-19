@@ -1,4 +1,5 @@
-package machura.przemyslaw.fissst.recruitment.school.datatransfermodel;
+package machura.przemyslaw.fissst.recruitment.school.persistence.datamodel;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,23 +10,23 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
-@Table(name = "school_subject")
+@Table(name = "school_class")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Getter
-public class SchoolSubjectDAO {
+public class SchoolClassDAO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false, unique = true)
-    @Size(min = 2, max = 50)
+    @Size(min = 1, max = 25)
     private String name;
 
-    @OneToMany(mappedBy = "schoolSubject")
-    private Set<StudentsMarksDAO> studentsMarks;
+    @OneToMany(mappedBy="schoolClass", fetch = FetchType.LAZY)
+    private Set<StudentDAO> students;
 
 }

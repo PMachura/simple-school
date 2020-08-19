@@ -1,4 +1,4 @@
-package machura.przemyslaw.fissst.recruitment.school.datatransfermodel;
+package machura.przemyslaw.fissst.recruitment.school.persistence.datamodel;
 
 
 import lombok.AllArgsConstructor;

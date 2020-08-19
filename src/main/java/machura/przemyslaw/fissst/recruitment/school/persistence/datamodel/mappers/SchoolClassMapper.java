@@ -1,10 +1,9 @@
-package machura.przemyslaw.fissst.recruitment.school.datatransfermodel.mappers;
+package machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.mappers;
 
 import machura.przemyslaw.fissst.recruitment.school.domain.SchoolClass;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.SchoolClassDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.SchoolClassDAO;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 

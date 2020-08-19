@@ -1,10 +1,8 @@
 package machura.przemyslaw.fissst.recruitment.school.api.students;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import machura.przemyslaw.fissst.recruitment.school.common.Failure;
-import machura.przemyslaw.fissst.recruitment.school.domain.Student;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.StudentDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.StudentDAO;
 import machura.przemyslaw.fissst.recruitment.school.persistence.students.StudentPersistenceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

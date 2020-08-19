@@ -1,4 +1,4 @@
-package machura.przemyslaw.fissst.recruitment.school.datatransfermodel;
+package machura.przemyslaw.fissst.recruitment.school.persistence.datamodel;
 
 import lombok.*;
 import org.hibernate.validator.constraints.pl.PESEL;
@@ -44,7 +44,7 @@ public class StudentDAO {
     @JoinColumn(name="school_class_id")
     private SchoolClassDAO schoolClass;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    @OneToMany(mappedBy = "student", fetch=FetchType.LAZY)
     private Set<StudentsMarksDAO> marks;
 
     private boolean dyslexia;

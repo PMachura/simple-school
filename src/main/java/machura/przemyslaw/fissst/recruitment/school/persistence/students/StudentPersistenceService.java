@@ -4,16 +4,20 @@ import io.vavr.control.Either;
 import io.vavr.control.Try;
 import lombok.RequiredArgsConstructor;
 import machura.przemyslaw.fissst.recruitment.school.common.Failure;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.StudentDAO;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.mappers.StudentMapper;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.StudentDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.StudentsMarksDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.mappers.StudentMapper;
 import machura.przemyslaw.fissst.recruitment.school.domain.Student;
 import machura.przemyslaw.fissst.recruitment.school.persistence.schoolclass.SchoolClassRepository;
+import machura.przemyslaw.fissst.recruitment.school.persistence.studentsmarks.StudentsMarksRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 @Component
 @Service
@@ -24,12 +28,13 @@ public class StudentPersistenceService implements StudentService {
 
     private final StudentRepository studentRepository;
     private final SchoolClassRepository schoolClassRepository;
+    private final StudentsMarksRepository studentsMarksRepository;
 
     public Either<Failure, Student> create(StudentDAO student) {
         if (!Objects.isNull(student.getId()))
             return Either.left(Failure.from("Student should not has id", Failure.Status.ILLEGAL_INPUT));
 
-        return Try.ofSupplier(() -> studentRepository.save(student))
+        return Try.ofSupplier(() -> saveUnchecked(student))
                 .toEither()
                 .map(StudentMapper::map)
                 .mapLeft(throwable -> Failure.from(DEFAULT_ERROR_MESSAGE));
@@ -54,6 +59,15 @@ public class StudentPersistenceService implements StudentService {
                         :
                         Either.right(StudentMapper.map(studentMaybe.get())));
 
+    }
+
+    @Transactional
+    protected StudentDAO saveUnchecked(StudentDAO studentDAO){
+        Set<StudentsMarksDAO> marks = studentDAO.getMarks();
+        StudentDAO saved = studentRepository.save(studentDAO);
+        marks.forEach(mark -> mark.setStudent(saved));
+        studentsMarksRepository.saveAll(marks);
+        return saved;
     }
 
     protected Optional<StudentDAO> findByIdUnchecked(long id) {

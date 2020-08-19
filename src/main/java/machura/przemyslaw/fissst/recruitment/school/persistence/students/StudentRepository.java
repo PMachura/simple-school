@@ -1,6 +1,6 @@
 package machura.przemyslaw.fissst.recruitment.school.persistence.students;
 
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.StudentDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.StudentDAO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

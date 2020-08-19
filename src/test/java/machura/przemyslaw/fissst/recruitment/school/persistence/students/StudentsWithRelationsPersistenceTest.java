@@ -3,10 +3,10 @@ package machura.przemyslaw.fissst.recruitment.school.persistence.students;
 import io.vavr.control.Either;
 import machura.przemyslaw.fissst.recruitment.school.DataSupplier;
 import machura.przemyslaw.fissst.recruitment.school.common.Failure;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.SchoolClassDAO;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.SchoolSubjectDAO;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.StudentDAO;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.StudentsMarksDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.SchoolClassDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.SchoolSubjectDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.StudentDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.StudentsMarksDAO;
 import machura.przemyslaw.fissst.recruitment.school.domain.SchoolClass;
 import machura.przemyslaw.fissst.recruitment.school.domain.SchoolSubject;
 import machura.przemyslaw.fissst.recruitment.school.domain.Student;
@@ -63,12 +63,12 @@ public class StudentsWithRelationsPersistenceTest {
 
         assertTrue(foundMaybe.isRight());
         Student found = foundMaybe.get();
-        assertEquals(student.getId(), found.getId());
-        assertNotNull(student.getSchoolClass());
-        assertEquals(student.getSchoolClass().getId(), schoolClass.getId());
-        assertNotNull(student.getMarks());
-        assertEquals(student.getMarks().size(), 1);
-        assertEquals(student.getMarks().get(0).getMark(), 5);
+        assertEquals(found.getId(), found.getId());
+        assertNotNull(found.getSchoolClass());
+        assertEquals(found.getSchoolClass().getId(), schoolClass.getId());
+        assertNotNull(found.getMarks());
+        assertEquals(found.getMarks().size(), 1);
+        assertEquals(found.getMarks().get(0).getMark(), 5);
     }
 
     private StudentDAO createValidStudentWithRelations() {

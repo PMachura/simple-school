@@ -3,7 +3,7 @@ package machura.przemyslaw.fissst.recruitment.school.persistence.students;
 import io.vavr.control.Either;
 import machura.przemyslaw.fissst.recruitment.school.DataSupplier;
 import machura.przemyslaw.fissst.recruitment.school.common.Failure;
-import machura.przemyslaw.fissst.recruitment.school.datatransfermodel.StudentDAO;
+import machura.przemyslaw.fissst.recruitment.school.persistence.datamodel.StudentDAO;
 import machura.przemyslaw.fissst.recruitment.school.domain.Student;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
